@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "projeto5-1aa80": {
+      "hosting": {
+        "app": [
+          "projeto5-1aa80"
+        ]
+      }
+    }
+  }
+}
