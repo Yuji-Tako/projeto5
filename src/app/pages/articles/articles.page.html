@@ -8,6 +8,17 @@
 </ion-header>
 
 <ion-content class="ion-padding-horizontal">
-  <h3>Artigos Recentes</h3>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, suscipit dicta. At a voluptate nesciunt repellat sed maiores, quos blanditiis impedit expedita illum, nam esse officiis consequatur? Necessitatibus, dolorum illum.</p>
+
+  <p><small>Artigos ordenados pelo mais recente</small></p>
+
+  <div *ngFor="let item of items | async">
+
+    <ion-card class="ion-no-margin ion-margin-bottom" routerLink="/view/{{ item.id }}">
+      <img src="{{item.img}}" />
+      <ion-card-header>
+        <ion-card-title>{{item.title}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>{{item.intro}}</ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
