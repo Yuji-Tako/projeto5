@@ -1,3 +1,4 @@
+
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -7,6 +8,45 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding-horizontal">
+
+  <p>Preencha o formulário abaixo para entrar em contato com Tales.</p>
+  <p class="ion-text-center">
+    <ion-text color="danger">
+      <small>Todos os campos são obrigatorios.</small>
+    </ion-text>
+  </p>
+
+  <form [formGroup]="contactForm" (ngSubmit)="contactSend()">
+
+    <ion-list lines="full" class="ion=no-padding">
+
+      <ion-item>
+        <ion-label form="name" position="floating" color="primary">Nome:</ion-label>
+        <ion-input type="text" name="name" id="name" formControlName="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label form="email" position="floating" color="primary">E-mail:</ion-label>
+        <ion-input type="text" name="email" id="email" formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label form="subject" position="floating" color="primary">Assunto:</ion-label>
+        <ion-input type="text" name="subject" id="subject" formControlName="subject"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label form="msg" position="floating" color="primary">Mensagem:</ion-label>
+        <ion-textarea type="text" name="msg" id="msg" formControlName="msg" autoGrow="true"></ion-textarea>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-button  type="submit" expand="block" [disabled]="contactForm.invalid" class="ion-margin-vertical">
+      Enviar
+    </ion-button>
+
+  </form>
 
 </ion-content>
