@@ -22,22 +22,43 @@
     <ion-list lines="full" class="ion=no-padding">
 
       <ion-item>
-        <ion-label form="name" position="floating" color="primary">Nome:</ion-label>
+        <ion-label form="name" position="floating" color="primary">
+          Nome:
+          <ion-text color="danger" *ngIf="contactForm.controls.name.errors">
+            <small *ngIf="contactForm.controls.name.errors.required">* Obrigatório</small>
+            <small *ngIf="contactForm.controls.name.errors.minlength">* Inválido</small>
+          </ion-text>
+        </ion-label>
         <ion-input type="text" name="name" id="name" formControlName="name"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label form="email" position="floating" color="primary">E-mail:</ion-label>
+        <ion-label form="email" position="floating" color="primary">E-mail:
+          <ion-text color="danger" *ngIf="contactForm.controls.email.errors">
+            <small *ngIf="contactForm.controls.email.errors.required">* Obrigatório</small>
+            <small *ngIf="contactForm.controls.email.errors.email">* Inválido</small>
+          </ion-text>
+        </ion-label>
         <ion-input type="text" name="email" id="email" formControlName="email"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label form="subject" position="floating" color="primary">Assunto:</ion-label>
+        <ion-label form="subject" position="floating" color="primary">Assunto:
+          <ion-text color="danger" *ngIf="contactForm.controls.subject.errors">
+            <small *ngIf="contactForm.controls.subject.errors.required">* Obrigatório</small>
+            <small *ngIf="contactForm.controls.subject.errors.minlength">* Inválido</small>
+          </ion-text>
+        </ion-label>
         <ion-input type="text" name="subject" id="subject" formControlName="subject"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label form="msg" position="floating" color="primary">Mensagem:</ion-label>
+        <ion-label form="msg" position="floating" color="primary">Mensagem:
+          <ion-text color="danger" *ngIf="contactForm.controls.msg.errors">
+            <small *ngIf="contactForm.controls.msg.errors.required">* Obrigatório</small>
+            <small *ngIf="contactForm.controls.msg.errors.minlength">* Inválido</small>
+          </ion-text>
+        </ion-label>
         <ion-textarea type="text" name="msg" id="msg" formControlName="msg" autoGrow="true"></ion-textarea>
       </ion-item>
 
