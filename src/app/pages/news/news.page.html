@@ -7,6 +7,21 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding" *ngIf="newsList">
+
+  <div *ngFor="let item of newsList" class="newsItem">
+
+    <ion-card (click)="newOpen(item.url)">
+      <img src="{{ item.urlToImage}}"  alt="{{item.title}}"/>
+      <ion-card-header>
+        <ion-card-subtitle>{{ item.source.name }}</ion-card-subtitle>
+        <ion-card-title>{{ item.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ item.decription }}
+      </ion-card-content>
+    </ion-card>
+
+  </div>
 
 </ion-content>

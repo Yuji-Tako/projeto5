@@ -18,3 +18,9 @@ import { NewsPage } from './news.page';
   declarations: [NewsPage]
 })
 export class NewsPageModule {}
+
+
+
+
+
+
