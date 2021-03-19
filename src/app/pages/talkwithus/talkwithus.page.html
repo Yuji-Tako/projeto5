@@ -5,12 +5,13 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Fale Conosco</ion-title>
+    <ion-img slot="end" class="toplogo" src="assets/logo_01.png"></ion-img>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding-horizontal">
 
-  <p>Preencha o formulário abaixo para entrar em contato com Tales.</p>
+  <p>Preencha o formulário abaixo para entrar em contato com GoPnIK.</p>
   <p class="ion-text-center">
     <ion-text color="danger">
       <small>Todos os campos são obrigatorios.</small>
@@ -70,4 +71,22 @@
 
   </form>
 
+<div id="footer">
+  <ion-grid>
+    <ion-row class="ion-text-center">
+      <ion-col>
+        <ion-icon name="logo-facebook" size="large" (click)="openSocial('longdogechallenge')"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="logo-youtube" size="large" (click)="openSocial('smashthewalls')"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="logo-twitter" size="large" (click)="openSocial('mondrianandme')"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="logo-github" size="large" (click)="openSocial('rrrgggbbb')"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
 </ion-content>
