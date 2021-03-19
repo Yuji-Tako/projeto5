@@ -9,5 +9,32 @@
 </ion-header>
 
 <ion-content>
-<p>Me chamo Yuji Tako, sou um estudante do senac e esse aplicativo faz parte do meu projeto final do modulo de desenvolvimento de apps hibridos</p>
+  <ion-card>
+    <img src="assets/about01.png" />
+    <ion-card-header>
+      <ion-card-title>Yuji Tako</ion-card-title>
+      <ion-card-subtitle>Estudante de programação</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      eu estudo programação a anos por meio autodidata, atualmente faço curso de Técnologia da informação no senac, este app faz parte do meu projeto integrador
+    </ion-card-content>
+    <div id="footer">
+      <ion-grid>
+        <ion-row class="ion-text-center">
+          <ion-col>
+            <ion-icon name="logo-facebook" size="large" (click)="openSocial('facebook','yuji.tako.42')"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="logo-youtube" size="large" (click)="openSocial('youtube', 'user/yujitako')"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="logo-twitter" size="large" (click)="openSocial('twitter', 'tako_yuji')"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="logo-github" size="large" (click)="openSocial('github', 'Yuji-Tako')"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-card>
 </ion-content>
