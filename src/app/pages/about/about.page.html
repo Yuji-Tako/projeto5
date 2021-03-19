@@ -4,9 +4,37 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Sobre</ion-title>
+    <ion-img slot="end" class="toplogo" src="assets/logo_01.png"></ion-img>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-card>
+    <img src="assets/about01.png" />
+    <ion-card-header>
+      <ion-card-title>Yuji Tako</ion-card-title>
+      <ion-card-subtitle>Estudante de programação</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      eu estudo programação a anos por meio autodidata, atualmente faço curso de Técnologia da informação no senac, este app faz parte do meu projeto integrador
+    </ion-card-content>
+    <div id="footer">
+      <ion-grid>
+        <ion-row class="ion-text-center">
+          <ion-col>
+            <ion-icon name="logo-facebook" size="large" (click)="openSocial('facebook','yuji.tako.42')"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="logo-youtube" size="large" (click)="openSocial('youtube', 'user/yujitako')"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="logo-twitter" size="large" (click)="openSocial('twitter', 'tako_yuji')"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="logo-github" size="large" (click)="openSocial('github', 'Yuji-Tako')"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-card>
 </ion-content>

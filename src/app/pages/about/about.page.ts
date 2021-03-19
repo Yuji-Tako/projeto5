@@ -11,5 +11,9 @@ export class AboutPage implements OnInit {
 
   ngOnInit() {
   }
-
+// Processa botões das redes sociais
+openSocial(name, profile) {
+  window.open(`https://${name}.com/${profile}`);
+  return false;
+}
 }

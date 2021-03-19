@@ -28,15 +28,14 @@ export function removeSpaces(control: AbstractControl) {
 export class talkwithusPage implements OnInit {
 
   // 3) Criar atributos
-  public talkwithusForm: FormGroup;  // Cria o formulário
+  public contactForm: FormGroup; // Cria o formulário
   pipe = new DatePipe('en_US'); // Formatador de datas
 
   constructor(
-
-    // 2) Injeta dependências
+// 2) Injeta dependencias
+    public alert: AlertController,
     public form: FormBuilder,
-    public firestore: AngularFirestore,
-    public alert: AlertController
+    public firestore: AngularFirestore
   ) { }
 
   ngOnInit() {
@@ -126,32 +125,85 @@ export class talkwithusPage implements OnInit {
         }
       );
   }
+// 5) Cria os campos do formulário
+  contactFormCreate(){
+    this.contactForm = this.form.group({
+      date:[''],
+
+      name:[
+      '',Validators.compose([Validators.required,Validators.minLength(3),removeSpaces])
+          ],
+      
+      email:[
+      '',Validators.compose([Validators.required,Validators.email,removeSpaces])
+      ],
+      
+      subject:[
+        '',Validators.compose([Validators.required,Validators.minLength(5),removeSpaces])
+      ],
+
+      msg:[
+        '',Validators.compose([Validators.required,Validators.minLength(5),removeSpaces])
+      ],
+    });
+  }
+  // 7) Processa envio do formulário
+  contactSend() {
+
+    // Gera e formata a data de envio
+    this.contactForm.controls.date.setValue(
+      this.pipe.transform(Date.now(), 'yyyy-MM-dd HH:mm:ss')
+    );
+
+    // Teste
+    console.log(this.contactForm.value);
+
+    // Salva no Firestore
+    this.firestore.collection('contacts').add(this.contactForm.value)
+
+      // Se salvar
+      .then(
+        () => {
+
+          // Feedback
+          this.feedback();
+        }
+      )
+
+      // Se falhar
+      .catch(
+        (error) => {
+          alert(`Oooops! Algo deu errado! ${error}`);
+        }
+      );
+  }
 
   // 8) Popup de feedback
   async feedback() {
     const alert = await this.alert.create({
-      header: 'Oba!',  // Título do alert
-      message: 'Seu contato foi enviado para o "Munecos".', // Mensagem do alert
-      buttons: [
+      header: 'Dale!',
+      message: 'Seu contato foi enviado para Tales.',
+      buttons: [{
+        text: 'OK',
+        handler: () => {
 
-        // Botão [Ok] e sua ação
-        {
-          text: 'OK',  // Texto do botão
-          handler: () => {  // Ação do botão
-
-            // Reset do formulário, mantendo nome e e-mail já usados
-            this.talkwithusForm.reset({
-              date: '',
-              name: this.talkwithusForm.value.name.trim(),
-              email: this.talkwithusForm.value.email.trim(),
-              subject: '',
-              message: ''
-            });
-          }
+          // Reset do formulario, mantendo nome e e-mail já usados
+          this.contactForm.reset({
+            date: '',
+            name: this.contactForm.value.name.trim(),
+            email: this.contactForm.value.email.trim(),
+            subject: '',
+            message: ''
+          });
         }
-      ]
+      }]
     });
 
     await alert.present();
   }
+    // Processa botões das redes sociais
+    openSocial(name) {
+      window.open(`https://${name}.com/`);
+      return false;
+    }
 }
